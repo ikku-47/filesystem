@@ -1,5 +1,31 @@
 # Filesystem
 
+## Query quota PERSISTENT filesystem
+
+```javascript
+var requestedBytes = 1024*1024*280; 
+
+navigator.webkitTemporaryStorage.queryUsageAndQuota ( 
+    function(usedBytes, grantedBytes) {  
+        console.log('we are using ', usedBytes, ' of ', grantedBytes, 'bytes');
+    }, 
+    function(e) { console.log('Error', e);  }
+);
+
+```
+## Request quota and initialize TEMPORARY filesystem
+
+```javascript
+var requestedBytes = 1024*1024*280; 
+
+navigator.webkitPersistentStorage.requestQuota (
+    requestedBytes, function(grantedBytes) {  
+        window.webkitRequestFileSystem(PERSISTENT, grantedBytes, onInitFs, errorHandler); 
+
+    }, function(e) { console.log('Error', e); }
+);
+```
+
 
 ## webkitRequestFileSystem
 
