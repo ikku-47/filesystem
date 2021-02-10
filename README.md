@@ -70,7 +70,7 @@ fs.root.getFile('log.txt', {
 
 ## createWriter
 ```javascript
-
+// https://developers.google.com/web/updates/2012/06/Don-t-Build-Blobs-Construct-Them
 fs.root.getFile('log.txt', {
     // create: true, 
     exclusive: true
